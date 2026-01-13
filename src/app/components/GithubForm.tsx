@@ -46,6 +46,8 @@ export default function GithubForm() {
     error: emailError,
   } = useGeminiEmail();
 
+  const [tone, setTone] = useState("professional");
+
   const onSubmit = (data: GithubFormData) => {
     setQueryParams(data);
   };
@@ -143,17 +145,20 @@ export default function GithubForm() {
                   }
                 : undefined
             }
-            onGenerateEmail={() => {
-              if (commits.length > 0 && queryParams) {
+            onGenerateEmail={(selectedCommits) => {
+              if (selectedCommits.length > 0 && queryParams) {
                 generateEmail({
-                  commits,
+                  commits: selectedCommits,
                   timeRange: {
                     startDate: queryParams.startDate,
                     endDate: queryParams.endDate,
                   },
+                  tone,
                 });
               }
             }}
+            tone={tone}
+            setTone={setTone}
           />
           {(isGenerating || emailData || emailError) && (
             <EmailGenerator
