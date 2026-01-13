@@ -24,14 +24,14 @@ export interface Commit {
 }
 
 export interface GithubFormData {
-  githubToken: string;
+  githubToken?: string;
   username: string;
   startDate: string;
   endDate: string;
 }
 
 export interface FetchCommitsParams {
-  githubToken: string;
+  githubToken?: string;
   username: string;
   startDate: string;
   endDate: string;
