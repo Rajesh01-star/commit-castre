@@ -74,7 +74,12 @@ async function fetchGithubCommits({
 export function useGithubCommits(params: FetchCommitsParams | null) {
   return useQuery({
     queryKey: ['commits', params],
-    queryFn: () => params ? fetchGithubCommits(params) : Promise.resolve([]),
-    enabled: !!params,
+    queryFn: () => {
+      if (params && params.githubToken) {
+        return fetchGithubCommits(params);
+      }
+      return Promise.resolve([]);
+    },
+    enabled: !!params && !!params.githubToken,
   });
 }
