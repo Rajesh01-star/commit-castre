@@ -1,0 +1,27 @@
+
+> commit-castre@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Port 3000 is in use by an unknown process, using available port 3001 instead.
+   ▲ Next.js 15.4.6 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.0.2:3001
+
+ ✓ Starting...
+ ✓ Ready in 1950ms
+ ○ Compiling / ...
+ ✓ Compiled / in 7.2s
+ GET / 200 in 8307ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1344ms
+[31m[auth][error][0m MissingSecret: Please define a `secret`. Read more at https://errors.authjs.dev#missingsecret
+    at assertConfig (/app/.next/server/chunks/node_modules_@auth_core_595f012e._.js:476:16)
+    at Auth (/app/.next/server/chunks/node_modules_@auth_core_595f012e._.js:5258:204)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AppRouteRouteModule.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:5:38782)
+ GET /api/auth/session 500 in 2776ms
+[31m[auth][error][0m MissingSecret: Please define a `secret`. Read more at https://errors.authjs.dev#missingsecret
+    at assertConfig (/app/.next/server/chunks/node_modules_@auth_core_595f012e._.js:476:16)
+    at Auth (/app/.next/server/chunks/node_modules_@auth_core_595f012e._.js:5258:204)
+    at async AppRouteRouteModule.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:5:38782)
+ GET /api/auth/session 500 in 72ms
